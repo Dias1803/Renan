@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aventura de Pássaros</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            color: #00695c;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        p {
+            font-size: 18px;
+            padding: 0 20px;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #00796b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: #004d40;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Aventura dos Pássaros no Céu</h1>
+    <p id="historia-inicial">Você é um jovem pássaro que acaba de aprender a voar. Agora, você está em uma grande aventura, explorando as montanhas e florestas. O que você vai fazer a seguir?</p>
+
+    <div class="buttons" id="primeiras-opcoes">
+        <button class="button" onclick="explorarFloresta()">Explorar a floresta</button>
+        <button class="button" onclick="subirMontanha()">Subir a montanha</button>
+    </div>
+
+    <div class="buttons" id="segunda-fase" style="display:none;">
+        <!-- As opções da segunda fase serão mostradas aqui -->
+    </div>
+
+    <p id="resultado"></p>
+
+    <script>
+        function explorarFloresta() {
+            document.getElementById('resultado').textContent = "Você voa sobre as árvores e encontra outros pássaros cantando alegremente!";
+            document.getElementById('primeiras-opcoes').style.display = "none";
+            document.getElementById('historia-inicial').textContent = "Enquanto explora a floresta, você vê algo brilhando entre as árvores. O que vai fazer?";
+            document.getElementById('segunda-fase').style.display = "block";
+            document.getElementById('segunda-fase').innerHTML = `
+                <button class="button" onclick="investigarBrilho()">Investigar o brilho</button>
+                <button class="button" onclick="continuarExplorando()">Continuar explorando a floresta</button>
+            `;
+        }
+
+        function subirMontanha() {
+            document.getElementById('resultado').textContent = "Você escala as altas montanhas e tem uma vista espetacular de todo o vale!";
+            document.getElementById('primeiras-opcoes').style.display = "none";
+            document.getElementById('historia-inicial').textContent = "No topo da montanha, você percebe uma tempestade se aproximando. O que vai fazer?";
+            document.getElementById('segunda-fase').style.display = "block";
+            document.getElementById('segunda-fase').innerHTML = `
+                <button class="button" onclick="voarParaAbrigo()">Procurar abrigo na montanha</button>
+                <button class="button" onclick="voarAbaixoDasNuvens()">Voar para abaixo das nuvens antes da tempestade</button>
+            `;
+        }
+
+        function investigarBrilho() {
+            document.getElementById('resultado').textContent = "Você se aproxima do brilho e encontra uma cachoeira escondida, onde há uma pedra preciosa brilhante. Você decide levá-la como um tesouro!";
+            document.getElementById('segunda-fase').style.display = "none";
+        }
+
+        function continuarExplorando() {
+            document.getElementById('resultado').textContent = "Você decide ignorar o brilho e continua explorando. De repente, encontra uma colônia de pássaros raros que nunca tinha visto antes!";
+            document.getElementById('segunda-fase').style.display = "none";
+        }
+
+        function voarParaAbrigo() {
+            document.getElementById('resultado').textContent = "Você encontra uma caverna segura onde outros animais estão abrigados. A tempestade passa rapidamente, e você aproveita para descansar.";
+            document.getElementById('segunda-fase').style.display = "none";
+        }
+
+        function voarAbaixoDasNuvens() {
+            document.getElementById('resultado').textContent = "Você voa para abaixo das nuvens e evita a tempestade. Durante o voo, você encontra um campo florido onde decide passar o resto do dia!";
+            document.getElementById('segunda-fase').style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
